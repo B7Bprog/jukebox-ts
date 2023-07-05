@@ -4,9 +4,15 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header";
 import SongsList from "./components/SongsList";
+import CurrentlyPlaying from "./components/CurrentlyPlaying";
+
 import { Song } from "./types/types";
 function App() {
   const playListTitle = `Jela's cool playlist`;
+  const currentlyPlaying = "I love your smile";
+
+
+
 
   const songs: Song[] = [
     {
@@ -59,7 +65,7 @@ function App() {
   return (
     <>
       <Header playListTitle={playListTitle} />
-      <SongsList songs={songs} />
+      <SongsList songs={songs} currentlyPlaying={currentlyPlaying}/>
     </>
   );
 }
