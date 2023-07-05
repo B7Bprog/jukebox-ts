@@ -5,3 +5,6 @@ export type Song = {
   albumCover: string;
   previewURL: string;
 };
+export type PlayCountsType = {
+  [key: string]: number;
+};

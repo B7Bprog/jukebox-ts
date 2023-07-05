@@ -6,13 +6,11 @@ import Header from "./components/Header";
 import SongsList from "./components/SongsList";
 import CurrentlyPlaying from "./components/CurrentlyPlaying";
 
-import { Song } from "./types/types";
+import { PlayCountsType, Song } from "./types/types";
+import PlayCounts from "./components/PlayCounts";
 function App() {
   const playListTitle = `Jela's cool playlist`;
   const currentlyPlaying = "I love your smile";
-
-
-
 
   const songs: Song[] = [
     {
@@ -61,11 +59,17 @@ function App() {
         "https://open.spotify.com/embed/track/029NqmIySn1kOY305AAhxT?utm_source=generator",
     },
   ];
-
+  const playCounts: PlayCountsType = {
+    Dreams: 10,
+    "Enter Sandman": 5,
+    "Don't stop me now": 8,
+    Sledgehammer: 11,
+  };
   return (
     <>
       <Header playListTitle={playListTitle} />
-      <SongsList songs={songs} currentlyPlaying={currentlyPlaying}/>
+      <SongsList songs={songs} currentlyPlaying={currentlyPlaying} />
+      <PlayCounts playCounts={playCounts} />
     </>
   );
 }

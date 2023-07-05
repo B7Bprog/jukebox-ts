@@ -10,12 +10,18 @@ interface SongsProp {
 const SongsList: FC<SongsProp> = ({ songs, currentlyPlaying }) => {
   return (
     <div>
-     
       <CurrentlyPlaying currentlyPlaying={currentlyPlaying} />
       <ol id={styles.orderedList}>
         {songs.map((song) => {
           return (
-            <li key={song.title} className={styles.songList}>
+            <li
+              key={song.title}
+              className={
+                currentlyPlaying === song.title
+                  ? styles.currentSong
+                  : styles.songList
+              }
+            >
               <h3 key={song.title}>{song.title}</h3>
               <h2>{song.artist}</h2>
               <img
