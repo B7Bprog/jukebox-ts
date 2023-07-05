@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -11,6 +11,14 @@ import PlayCounts from "./components/PlayCounts";
 function App() {
   const playListTitle = `Jela's cool playlist`;
   const currentlyPlaying = "I love your smile";
+
+  const [money, setMoney] = useState<number>(0);
+
+  const handleClick = () => {
+    setMoney((currentAmount) => {
+      return (currentAmount += 1);
+    });
+  };
 
   const songs: Song[] = [
     {
@@ -67,6 +75,10 @@ function App() {
   };
   return (
     <>
+      <button onClick={handleClick}>Add 1 pound</button>
+      <label>
+        <h2>Current amount: £{money}</h2>
+      </label>
       <Header playListTitle={playListTitle} />
       <SongsList songs={songs} currentlyPlaying={currentlyPlaying} />
       <PlayCounts playCounts={playCounts} />
